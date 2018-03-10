@@ -1,0 +1,11 @@
+{
+    "name": "vendor/sendworks",
+    "description": "Descrição do projeto sendworks.",
+    "authors": [
+        {
+            "name": "iftm",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {}
+}
