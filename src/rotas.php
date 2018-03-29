@@ -4,8 +4,8 @@
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
 
-$rota = new Route('/esporte', array('_controller' => 'ControllerEsporte','method'=> 'msgInicial'));
+
 $rotas = new RouteCollection();
-$rotas->add('teste', $rota);
+$rotas->add('esporte', $rota = new Route('/esporte', array('_controller' => 'Sendworks\Controller\ControllerEsporte','method'=> 'msgInicial')));
 
 return $rotas;
