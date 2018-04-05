@@ -18,9 +18,10 @@ try{
    $atributos = $matcher->match($contexto->getPathInfo());
    $controller = $atributos['_controller'];
    $method = $atributos['method'];
-   $parametros = '';
+   $parametros = $atributos['sufix'];
+   
    $obj = new $controller($response, $contexto);
-   $obj->$method();
+   $obj->$method($parametros);
 } catch (Exception $ex) {
     $response->setContent('NOT FOUND MOÇO', Response::HTTP_NOT_FOUND);
 }

@@ -15,9 +15,9 @@ class ControllerEsporte {
         $this->contexto = $contexto;
     }
 
-    public function msgInicial() {
+    public function msgInicial($parametros) {
         
-        return $this->response->setContent($this->contexto->getPathInfo());
+        return $this->response->setContent($parametros);
     }
 
 }
