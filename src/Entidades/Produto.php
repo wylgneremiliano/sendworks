@@ -1,8 +1,39 @@
 <?php
 
-namespace Sendworks\entidades;
+namespace Sendworks\Entidades;
+
 class Produto {
-    public function msg(){
-        echo 'Teste de mensagem';
+    
+    private $id;
+    private $descricao;
+    private $preco;
+    
+    function __construct() {
+        
     }
+    function getId() {
+        return $this->id;
+    }
+
+    function getDescricao() {
+        return $this->descricao;
+    }
+
+    function getPreco() {
+        return $this->preco;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setDescricao($descricao) {
+        $this->descricao = $descricao;
+    }
+
+    function setPreco($preco) {
+        $this->preco = $preco;
+    }
+
+
 }
