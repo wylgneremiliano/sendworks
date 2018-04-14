@@ -1,35 +1,40 @@
 <?php
- namespace Sendworks\Controller;
- 
- use Symfony\Component\HttpFoundation\Response;
- use Symfony\Component\Routing\RequestContext;
- use Sendworks\Model\MProdutos;
- 
+
+namespace Sendworks\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RequestContext;
+use Sendworks\Model\MProdutos;
+use Twig\;
+
 class ControllerEsporte {
-    
+
     private $response;
     private $contexto;
-    
-    public function __construct(Response $response, RequestContext $contexto) {
+    private $twig;
+    public function __construct(Response $response, RequestContext $contexto, Environment $twig) {
         $this->response = $response;
         $this->contexto = $contexto;
+        $this->twig = $twig;
     }
-    
-    public function msgInicial($parametro){
-        
-     if(!is_numeric($parametro) && $parametro != ''){
-          $parametro = 'não localizado';
-      }
-      
-      
+
+    public function twigAqui($parametro) {
+
+        if (!is_numeric($parametro) && $parametro != '') {
+            $parametro = 'não localizado';
+        }
+
+
 //criar um objeto do tipo entidade // buscar os dados no banco  de dado 
-       return $this->response->setContent('categoria: '.$parametro);
+             
+       return $this->response->setContent($this->twig->render('master.twig'));
+
     }
-    
-    public function listaProdutos(){
+
+    public function listaProdutos() {
         $modelo = new MProdutos();
         $dados = $modelo->listarProdutos();
-        return $this->response->setContent($dados[0]->descricao);
+        return $this->response->setContent($this->twig->render('master.twig'));
     }
-    
+
 }
