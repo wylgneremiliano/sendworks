@@ -5,7 +5,7 @@ namespace Sendworks\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RequestContext;
 use Sendworks\Model\MProdutos;
-use Twig\;
+use Twig\Environment;
 
 class ControllerEsporte {
 
@@ -34,7 +34,7 @@ class ControllerEsporte {
     public function listaProdutos() {
         $modelo = new MProdutos();
         $dados = $modelo->listarProdutos();
-        return $this->response->setContent($this->twig->render('master.twig'));
+        return $this->response->setContent($this->twig->render('produtos.twig'));
     }
 
 }
