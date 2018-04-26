@@ -34,7 +34,6 @@ class ControllerEsporte {
     public function listaProdutos() {
         $modelo = new MProdutos();
         $dados = $modelo->listarProdutos();
-        return $this->response->setContent($this->twig->render('produtos.twig'));
-    }
+        return $this->response->setContent($this->twig->render('produtos.twig', ['dados' => $dados]));    }
 
 }

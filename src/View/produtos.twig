@@ -1,5 +1,10 @@
 {% extends "master.twig" %}
+
 {% block conteudo %}
     {{ parent() }}
-    Sobrescrevi<br>
+    
+    <button id="bt1"  value="valor_botao">Achou errado otaro</button>
+    <div id="div_retorno" style="display: none;">
+        Aqui sera rejeitado
+    </div>
 {% endblock conteudo %}    

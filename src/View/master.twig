@@ -9,13 +9,12 @@
     <body>
         {% block conteudo %}
             {{include ('Componentes/menu.twig')}}
-            <div>
-                Texto da master<br>
-
-            </div>
         {% endblock conteudo %}
 
         {% block rodape %}
+            <script src="../js/jquery-3.3.1.min.js" type="text/javascript"> </script>
+            <script src="../js/funcoes.js" type="text/javascript"> </script>
+            
         {% endblock rodape %}
     </body>
 </html>
