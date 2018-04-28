@@ -3,8 +3,10 @@
 {% block conteudo %}
     {{ parent() }}
     
-    <button id="bt1"  value="valor_botao">Achou errado otaro</button>
-    <div id="div_retorno" style="display: none;">
-        Aqui sera rejeitado
+    <button id="bt1"  value="valor_botao">OK</button>
+    <div id="div_retorno">
+    </div>
+    <div id="processando" style="display: none;"> 
+        <img src="imagens/espera.gif">
     </div>
 {% endblock conteudo %}    

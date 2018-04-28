@@ -11,5 +11,7 @@ $rotas->add('esporte',  new Route('/esporte',
       );
 $rotas->add('produtos', new Route('/produtos', 
         array('_controller' => 'Sendworks\Controller\ControllerEsporte','method'=> 'listaProdutos')));
+$rotas->add('cadastro', new Route('/cadastro', 
+        array('_controller' => 'Sendworks\Controller\ControllerCadastro','method'=> 'show')));
 
 return $rotas;

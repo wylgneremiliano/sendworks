@@ -8,7 +8,19 @@ $(document).ready(function () {
                 $("#div_retorno").html(dados);
             },
             beforeSend: function(){
-                $("#div_retorno").css({display: "block"});
+                $("#processando").css({display: "block"});
+            },
+            complete: function(){
+                setTimeout(function() {
+                $("#processando").css({display: "none"});    
+                }, 5000);
+                
+            },
+            erro: function(){
+                $("#div_retorno").html("ERRO na função");
+                setTimeout(function() {
+                $("#div_retorno").css({display: "none"});    
+                }, 5000);
             }
         });
     });

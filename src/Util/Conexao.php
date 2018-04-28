@@ -8,6 +8,7 @@ class Conexao {
     private function __construct() {
         
     }
+    
     public static function getInstancia(){
         if(!isset(self::$instancia)){
             self::$instancia = new PDO("mysql:host=localhost;dbname=projeto", 'root', '');
