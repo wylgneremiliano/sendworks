@@ -18,6 +18,7 @@ $matcher = new UrlMatcher($rotas, $contexto);
 
 $loader = new FilesystemLoader(__DIR__.'/View');
 $environment = new Environment($loader);
+//$environment->addGlobal('session', $_SESSION);
 
 try{
    $atributos = $matcher->match($contexto->getPathInfo());
