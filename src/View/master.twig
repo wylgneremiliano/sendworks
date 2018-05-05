@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Meu Projeto -{% block titulo %}{% endblock titulo %}</title>
+        <title>Meu Projeto -{% block titulo %}{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="container"
+        <div class="container">
         {% block conteudo %}
-            {{include ('Componentes/menu.twig')}}
-        {% endblock conteudo %}
+            {{ include('componentes/menu.twig') }}
+        {% endblock %}
         
         {% block rodape %}
+           <script src="js/jquery-3.3.1.min.js" type="text/javascript"> </script>
+            <script src="js/funcoes.js" type="text/javascript"> </script>
+            <script src="css/bootstrap.min.js" type="text/javascript"></script>
           
-            <script src="../js/jquery-3.3.1.min.js" type="text/javascript"> </script>
-            <script src="../js/funcoes.js" type="text/javascript"> </script>
-            <script src="../../public/css/bootstrap.min.js" type="text/javascript"></script>
-        {% endblock rodape %}
+        {% endblock %}
+         
         </div>
     </body>
 </html>

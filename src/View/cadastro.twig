@@ -1,7 +1,7 @@
 {% extends "master.twig" %}
 
 {% block conteudo %}
-    <form action="/cadastro" method="POST" class="form-group center-block text-center">
+    <form action="cadastro" method="POST" class="form-group center-block text-center">
 
         <div class="input-group">
             <div class="input-group-prepend">   
@@ -10,26 +10,26 @@
             <input type="text" name="nome" class="form-control"/>
 
         </div>
-        
-          <div class="input-group">
+
+        <div class="input-group">
             <div class="input-group-prepend">   
                 <span class="input-group-text">Descrição</span>
             </div>
-              <input type="text" name="descricao" class="form-control"/>
+            <input type="text" name="descricao" class="form-control"/>
 
         </div>
 
         <button type="submit" class="btn btn-success">Cadastrar</button>
 
     </form>
-   
 
 
 
-{% endblock conteudo %}
+
+{% endblock  %}
 
 
 {% block rodape %}
 
 
-{% endblock rodape %}
+{% endblock  %}
