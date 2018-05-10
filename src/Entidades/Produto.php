@@ -3,14 +3,16 @@
 namespace Sendworks\Entidades;
 
 class Produto {
-    
+
     private $id;
     private $descricao;
     private $preco;
-    
-    function __construct() {
-        
+
+    function __construct($descricao, $preco) {
+        $this->descricao = $descricao;
+        $this->preco = $preco;
     }
+
     function getId() {
         return $this->id;
     }
@@ -34,6 +36,5 @@ class Produto {
     function setPreco($preco) {
         $this->preco = $preco;
     }
-
 
 }
