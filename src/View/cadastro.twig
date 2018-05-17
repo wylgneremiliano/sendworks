@@ -1,34 +1,48 @@
 {% extends "master.twig"%}
-
+{% block head %}
+       {{ parent() }}
+    <link href="/css/cadastro.css" rel="stylesheet" type="text/css"/>
+    {% endblock %}
 {% block conteudo %}
 
-
-    <form  class="form-group center-block text-center" id="formCadastro">
+    <div class="caixa">
+    <form  class="form-group  center-block text-center" id="formCadastro">
+        
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">ID</span>
+                
             </div>
-            <input type="text" name="id" class="form-control" disabled="true"/>
-        </div>
-
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Descrição</span>
-            </div>
-            <input type="text" name="descricao" class="form-control"/>
+            <input type="text" name="Nome" class="form-control" placeholder="Nome"/>
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">Preço</span>
+               
             </div>
-            <input type="number" name="preco" class="form-control"/>
+            <input type="text" name="Sobrenome" class="form-control" placeholder="sobrenome"/>
+        </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+            </div>
+              <input type="text" name="Username" class="form-control" placeholder="Username"/>
+        </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+                
+            </div>
+              <input type="password" name="senha" class="form-control" placeholder="senha"/>
+        </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+    
+            </div>
+              <input type="password" name="confirmar senha" class="form-control" placeholder="confirmar senha"/>
         </div>
         <div class="">  
             <button type="submit" class="btn btn-success">Cadastrar</button>
         </div>
 
     </form>
-
+    </div>
     <div id="div_retorno">
         
     </div>
