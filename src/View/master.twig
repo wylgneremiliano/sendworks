@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>{% block head %}
-        <title>Meu Projeto -{% block titulo %}{% endblock %}</title>
+        <title>{% block titulo %}EZ CODE{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="imagens/ez_icone.png">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    {% endblock %}
-    </head>
-    <body>
-        <div class="container">
-        {% block conteudo %}
-            {{ include('componentes/menu.twig') }}
+        <link href="css/master.css" rel="stylesheet" type="text/css"/>
         {% endblock %}
-        
-        {% block rodape %}
-           <script src="js/jquery-3.3.1.min.js" type="text/javascript"> </script>
-            <script src="js/funcoes.js" type="text/javascript"> </script>
-            <script src="css/bootstrap.min.js" type="text/javascript"></script>
-          
-        {% endblock %}
-         
-        </div>
-    </body>
-</html>
+        </head>
+        <body>
+            {% block menu %}
+                <div class="header" >
+                    <img src="imagens/ez2.png" height="100%" />
+                </div>
+            {% endblock %}
+            {% block conteudo %}
+                {{ include('componentes/menu.twig') }}
+            {% endblock %}
+
+            {% block rodape %}
+                <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+                <script src="js/funcoes.js" type="text/javascript"></script>
+                <script src="css/bootstrap.min.js" type="text/javascript"></script>
+
+            {% endblock %}
+
+
+        </body>
+    </html>
 

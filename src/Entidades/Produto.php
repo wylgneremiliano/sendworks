@@ -5,36 +5,52 @@ namespace Sendworks\Entidades;
 class Produto {
 
     private $id;
-    private $descricao;
-    private $preco;
+    private $nome;
+    private $sobrenome;
+    private $username;
+    private $senha;
 
-    function __construct($descricao, $preco) {
-        $this->descricao = $descricao;
-        $this->preco = $preco;
+    function __construct($nome, $sobrenome, $username, $senha) {
+        $this->nome = $nome;
+        $this->sobrenome = $sobrenome;
+        $this->username = $username;
+        $this->senha = $senha;
     }
 
     function getId() {
         return $this->id;
     }
 
-    function getDescricao() {
-        return $this->descricao;
+    function getNome() {
+        return $this->nome;
     }
 
-    function getPreco() {
-        return $this->preco;
+    function getSobrenome() {
+        return $this->sobrenome;
     }
 
-    function setId($id) {
-        $this->id = $id;
+    function getUsername() {
+        return $this->username;
     }
 
-    function setDescricao($descricao) {
-        $this->descricao = $descricao;
+    function getSenha() {
+        return $this->senha;
     }
 
-    function setPreco($preco) {
-        $this->preco = $preco;
+    function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    function setSobrenome($sobrenome) {
+        $this->sobrenome = $sobrenome;
+    }
+
+    function setUsername($username) {
+        $this->username = $username;
+    }
+
+    function setSenha($senha) {
+        $this->senha = $senha;
     }
 
 }

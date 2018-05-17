@@ -9,8 +9,19 @@
 
 .caixa button {
     margin-left: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
+.esqueceu{
+   color: #007bff;
+   
+}
+.esqueceu:hover{
+   text-decoration: underline;
+   color: #335e85;
+   cursor: pointer;
+   
+}
 .inputAnimado{
     margin: 10px 25px;
     
@@ -50,4 +61,5 @@
     transform: translateY(-20px);
     visibility: hidden;
 }
+
 

@@ -26,8 +26,8 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
     $("#formCadastro").submit(function (e) {
-       e.preventDefault(); // evita que o formulário seja submetido
-       $.ajax({
+        e.preventDefault(); // evita que o formulário seja submetido
+        $.ajax({
             type: 'POST',
             url: '/cadastro',
             data: $("#formCadastro").serializeArray(),
@@ -51,3 +51,9 @@ $(document).ready(function () {
         });
     });
 });
+
+
+
+function reapareceDiv() {
+    document.getElementById("esqueci-senha").style.display = "block";
+}

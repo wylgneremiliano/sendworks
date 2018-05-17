@@ -1,54 +1,54 @@
 {% extends "master.twig"%}
+{% block titulo %}Crie sua conta no EZ CODE{% endblock %}
 {% block head %}
-       {{ parent() }}
+    {{ parent() }}
     <link href="/css/cadastro.css" rel="stylesheet" type="text/css"/>
-    {% endblock %}
+{% endblock %}
 {% block conteudo %}
+   
+    <div class="caixa col-12 col-sm-12 col-xl-10 col-lg-12 col-xs-8">
+        <div class="">
+            <form  class="form-group  center-block text-center" id="formCadastro">
 
-    <div class="caixa">
-    <form  class="form-group  center-block text-center" id="formCadastro">
-        
-        <div class="input-group">
-            <div class="input-group-prepend">
-                
-            </div>
-            <input type="text" name="Nome" class="form-control" placeholder="Nome"/>
-        </div>
-        <div class="input-group">
-            <div class="input-group-prepend">
-               
-            </div>
-            <input type="text" name="Sobrenome" class="form-control" placeholder="sobrenome"/>
-        </div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-            </div>
-              <input type="text" name="Username" class="form-control" placeholder="Username"/>
-        </div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-                
-            </div>
-              <input type="password" name="senha" class="form-control" placeholder="senha"/>
-        </div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-    
-            </div>
-              <input type="password" name="confirmar senha" class="form-control" placeholder="confirmar senha"/>
-        </div>
-        <div class="">  
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </div>
+                <div class="">
+                    <div class="input-group-prepend input-group col-12 col-sm-12 col-xl-12 col-lg-12 col-xs-12">
+                        <input type="text" name="nome" class="inputAnimado" placeholder="Nome" required/>
+                    </div>
+                </div>
 
-    </form>
+                <div class="">                  
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-8 col-xs-8">
+                        <input type="text" name="sobrenome" class="inputAnimado" placeholder="sobrenome" required/>
+
+                    </div>
+                </div>
+                <div class="">                    
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
+                        <input type="text" name="username" class="inputAnimado" placeholder="Username" required/>
+
+                    </div>
+                </div>
+                <div class="">                   
+                    <div class="input-group-prepend input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
+                        <input type="password" name="senha" class="inputAnimado" placeholder="senha" required/>
+
+                    </div>
+                </div>
+                <div class="">            
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
+                        <input type="password" name="confirmar senha" class="inputAnimado" placeholder="confirmar senha" required/>
+
+                    </div>
+                </div>
+                <div class="">  
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
     </div>
-    <div id="div_retorno">
-        
-    </div>
-    <div id="processando" style="display: none;">
-        <img src="imagens/espera.gif" alt=""/>
-        
-    </div>
-    
+
+
 {% endblock %}
