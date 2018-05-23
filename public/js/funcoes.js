@@ -57,3 +57,6 @@ $(document).ready(function () {
 function reapareceDiv() {
     document.getElementById("esqueci-senha").style.display = "block";
 }
+function tiraDiv() {
+    document.getElementById("esqueci-senha").style.display = "none";
+}

@@ -6,15 +6,56 @@
     border-radius: 8px;
     padding: 15px;
 }
-
+.btn-success{
+   
+    background: #008941;
+}
+.btn-success:hover{
+     
+     background: #28a745;
+     
+}
 .caixa button {
     margin-left: 25px;
     padding-left: 15px;
     padding-right: 15px;
 }
 .esqueceu{
-   color: #007bff;
-   
+   color: #5DADE2;
+   margin: 10px;
+}
+.esqueci-senha p{
+    color: #85929E;
+}
+.esqueci-senha{
+  width: 310px;
+  height:160px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px;
+  padding-top: 0;
+  background: #AED6F1;
+  margin-left: 40px;
+  
+}
+.esqueci-senha button{
+    margin: 0;                   
+    margin-left: 165px;
+    background: #3498DB;
+    border: none;
+}
+.esqueci-senha img{
+    margin-left: 280px;
+    text-align: right;
+    width: 12px;
+    height: 12px;
+}
+.esqueci-senha img:hover{
+    cursor: pointer;
+    color: black;
+}
+.esqueci-senha button:hover{
+    background: #2E86C1;
 }
 .esqueceu:hover{
    text-decoration: underline;
@@ -24,7 +65,7 @@
 }
 .inputAnimado{
     margin: 10px 25px;
-    
+    width: 250px;
     display: block;
     border: none;
     padding: 10px 0;
@@ -36,13 +77,15 @@
     background-position: -250px 0;
     background-size: 250px 100%;
     background-repeat: no-repeat;
-    color: #0e6252;
+   
+    color: #008941;
 }
 
 .inputAnimado:focus, .inputAnimado:valid {
     box-shadow: none;
     outline: none;
     background-position: 0 0;
+    
 }
 
 .inputAnimado:invalid{
@@ -52,14 +95,14 @@
     font-family: 'roboto', sans-serif;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+   
 }
 
 .inputAnimado:focus::-webkit-input-placeholder, .inputAnimado:valid::-webkit-input-placeholder {
-    color: #1abc9c;
+    color:#008941;
     font-size: 11px;
     -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
-    visibility: hidden;
+    visibility: visible;
 }
-
 

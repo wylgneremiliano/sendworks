@@ -2,7 +2,7 @@
 
 namespace Sendworks\Entidades;
 
-class Produto {
+class Usuario {
 
     private $id;
     private $nome;

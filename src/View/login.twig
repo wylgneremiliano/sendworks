@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="">                   
-                    <div class="input-group-prepend input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
                         <input type="password" name="senha" class="inputAnimado" placeholder="senha" required/>
 
                     </div>
@@ -28,11 +28,14 @@
 
                 <div class="">  
                     <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
-                        <button type="submit" class="btn btn-success">Entrar</button>
+                        <button type="submit" class="btn btn-success" >Entrar</button>
                     </div>
                 </div>
-                <div id="esqueci-senha" style="display: none;"> 
-                    deu bom 
+                <div class="esqueci-senha" id="esqueci-senha" style="display: none;"> 
+                    <img onclick="tiraDiv()" src="imagens/cancel.png" >
+                    <p>Preencha o seu username acima para que possamos enviar no seu email 
+                        uma redefinição de senha</p> 
+                    <button type="submit" class="btn btn-success">Enviar email</button>
                 </div>
             </form>
         </div>
