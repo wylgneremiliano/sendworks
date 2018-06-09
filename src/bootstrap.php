@@ -15,7 +15,7 @@ use Sendworks\Util\sessao;
 $sessao = new Sessao();
 $sessao->start();
 
-$sessao->del();
+//$sessao->del();
 include 'rotas.php';
 $request = Request::createFromGlobals();
 $contexto = new RequestContext();

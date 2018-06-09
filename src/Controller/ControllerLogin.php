@@ -35,13 +35,13 @@ class ControllerLogin {
     }
 
     public function login() {
-        
+        $this->sessao->add('cor', 'verede');
         return $this->response->setContent($this->twig->render('index.twig'));
     }
 
     public function cadastro() {
         // validação
-
+        if($this->sessao->existe('nome'))
 
         $nome = $this->contexto->get('nome');
         $sobrenome = $this->contexto->get('sobrenome');
