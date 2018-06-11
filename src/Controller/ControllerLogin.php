@@ -25,8 +25,18 @@ class ControllerLogin {
     }
 
     public function show() {
-        if ($this->sessao->existe('Usuario'))
-            return $this->response->setContent($this->twig->render('cadastro.twig'));
+        //if ($this->sessao->existe('Usuario'))
+        return $this->response->setContent($this->twig->render('login.twig'));
+        //else {
+        //  $destino = '/login';
+        //$redirecionar = new RedirectResponse($destino);
+        //$redirecionar->send();
+        //}
+    }
+
+    public function showLog() {
+        if ($this->sessao->existe('username'))
+            return $this->response->setContent($this->twig->render('index.twig'));
         else {
             $destino = '/login';
             $redirecionar = new RedirectResponse($destino);
@@ -34,26 +44,39 @@ class ControllerLogin {
         }
     }
 
-    public function login() {
-        $this->sessao->add('cor', 'verede');
-        return $this->response->setContent($this->twig->render('index.twig'));
+    public function logoff() {
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+        $this->sessao->del();
+        print_r($_SESSION);
     }
 
-    public function cadastro() {
-        // validação
-        if($this->sessao->existe('nome'))
+    public function login() {
+        // Constante com a quantidade de tentativas aceitas
+        define('TENTATIVAS_ACEITAS', 5);
 
-        $nome = $this->contexto->get('nome');
-        $sobrenome = $this->contexto->get('sobrenome');
+        // Constante com a quantidade minutos para bloqueio
+        define('MINUTOS_BLOQUEIO', 30);
         $username = $this->contexto->get('username');
-        $t1 = $this->contexto->get('senha');
-        $senha = sha1($t1 . substr($sobrenome, -5));
-        
-        // depois de validado
-        $user = new Usuario($nome, $sobrenome, $username, $senha);
-        $modeloUsuario = new MUsuario();
+        $senha = $this->contexto->get('senha');
+        echo 'teste';
+        $User = new Usuario();
+        $User->setUsername($username);
+        $User->setSenha($senha);
+        $mUser = new MUsuario();
+        $result = $mUser->ler($User);
 
-        $modeloUsuario->cadastrar($user);
+        if ($result) {
+            $this->sessao->add('username', $User->getUsername());
+            $this->sessao->add('senha', $User->getSenha());
+            
+        }
+
+        if ($this->sessao->existe('ez')) {
+            echo json_encode($_SESSION);
+            exit();
+        }
     }
 
 }

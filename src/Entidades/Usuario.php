@@ -10,11 +10,15 @@ class Usuario {
     private $username;
     private $senha;
 
-    function __construct($nome, $sobrenome, $username, $senha) {
-        $this->nome = $nome;
-        $this->sobrenome = $sobrenome;
-        $this->username = $username;
-        $this->senha = $senha;
+//    function __construct($nome, $sobrenome, $username, $senha) {
+//        $this->nome = $nome;
+//        $this->sobrenome = $sobrenome;
+//        $this->username = $username;
+//        $this->senha = $senha;
+//    }
+    
+    function __construct() {
+     
     }
 
     function getId() {

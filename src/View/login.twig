@@ -5,10 +5,10 @@
     <link href="/css/login.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
 {% block conteudo %}
-   
+
     <div class="caixa col-12 col-sm-12 col-xl-10 col-lg-12 col-xs-8">
         <div class="">
-            <form  class="form-group  center-block text-center" id="formLogin">
+            <form  class="form-group  center-block text-center" id="formLogin" action="/acLogar" method="POST">
                 <div class="">                    
                     <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
                         <input type="text" name="username" class="inputAnimado" placeholder="Username" required/>
@@ -17,13 +17,13 @@
                 </div>
                 <div class="">                   
                     <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
-                        <input type="password" name="senha" class="inputAnimado" placeholder="senha" required/>
+                        <input type="password" name="senha" class="inputAnimado" placeholder="Senha" required/>
 
                     </div>
                 </div>
 
                 <div class="esqueceu">
-                    <a  onclick="reapareceDiv()"> Esqueceu a senha?</a>
+                    <a onclick="reapareceDiv()"> Esqueceu a senha?</a>
                 </div>
 
                 <div class="">  
@@ -38,6 +38,7 @@
                     <button type="submit" class="btn btn-success">Enviar email</button>
                 </div>
             </form>
+            <p id="resultado"> </p> 
         </div>
     </div>
 

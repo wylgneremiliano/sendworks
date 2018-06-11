@@ -25,7 +25,7 @@ class MUsuario {
 
     function cadastrar(Usuario $user) {
         try {
-                        
+
             $sql = 'insert into usuario (nome, sobrenome, username, senha) values(:nome, :sobrenome, :username, :senha)';
             $p_sql = Conexao::getInstancia()->prepare($sql);
             $p_sql->bindValue(':nome', $user->getNome());
@@ -67,13 +67,18 @@ class MUsuario {
             return 'Erro na conexão:' . $ex;
         }
     }
-     function ler(Usuario $username) {
+
+    function ler(Usuario $user) {
+    
         try {
-            $sql = 'select * from usuario where username = :nome';
-            $p_sql->bindValue(':username', $user->getId());
-            $ps = Conexao::getInstancia()->prepare($sql);
-            $ps->execute();
-            return $ps->fetchAll(PDO::FETCH_OBJ);
+            $sql = 'select * from usuario where username = :username and senha = :senha';
+            $p_sql = Conexao::getInstancia()->prepare($sql);
+            $p_sql->bindValue(':username', $user->getUsername());
+            $p_sql->bindValue(':senha', $user->getSenha());
+            $p_sql->execute();
+
+            $valid = $p_sql->fetchColumn();
+            return $valid;
         } catch (Exception $ex) {
             return 'Erro na conexão:' . $ex;
         }

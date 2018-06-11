@@ -32,7 +32,7 @@ $(document).ready(function () {
             url: '/cadastro',
             data: $("#formCadastro").serializeArray(),
             success: function (dados) {
-                $("#div_retorno").html(dados);
+                 window.location = '/logado';
             },
             beforeSend: function () {
                 $("#processando").css({display: "block"});
@@ -51,7 +51,26 @@ $(document).ready(function () {
         });
     });
 });
-
+$(document).ready(function () {
+    $('#formLogin').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/acLogar',
+            data: $(this).serializeArray(),
+            
+            success: function (response)
+            { 
+                if (response) {
+                    window.location = '/logado';
+                } else {
+                     console.log(response);
+                    alert('Invalid redentials');
+                }
+            }
+        });
+    });
+});
 
 
 function reapareceDiv() {

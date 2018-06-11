@@ -6,8 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sendworks\Entidades\Produto;
-use Sendworks\Model\MProdutos;
+use Sendworks\Entidades\Usuario;
+use Sendworks\Model\MUsuario;
 use Sendworks\Util\sessao;
 
 class ControllerCadastro {
@@ -25,34 +25,46 @@ class ControllerCadastro {
     }
 
     public function show() {
-        if ($this->sessao->existe('Usuario'))
-            return $this->response->setContent($this->twig->render('cadastro.twig'));
-        else {
-            $destino = '/login';
-            $redirecionar = new RedirectResponse($destino);
-            $redirecionar->send();
-        }
+        //if (!$this->sessao->existe('Usuario'))
+        return $this->response->setContent($this->twig->render('cadastro.twig'));
+        // else {
+        //     $destino = '/login';
+        //    $redirecionar = new RedirectResponse($destino);
+        //    $redirecionar->send();
+        // }
     }
 
     public function login() {
         return $this->response->setContent($this->twig->render('login.twig'));
     }
+    
+    public function ok(){
+        return $this->response->setContent($this->twig->render('CadastroEfetuado.twig'));
+    }
 
     public function cadastro() {
-        // validação
-
+        //$cl = new ControllerLogin();
+        // $cl->verifica();
 
         $nome = $this->contexto->get('nome');
         $sobrenome = $this->contexto->get('sobrenome');
         $username = $this->contexto->get('username');
-        $t1 = $this->contexto->get('senha');
-        $senha = sha1($t1 . substr($sobrenome, -5));
+        $senha = $this->contexto->get('senha');
 
         // depois de validado
-        $produto = new Produto($nome, $sobrenome, $username, $senha);
-        $modeloProduto = new MProdutos();
+       
+        $user = new Usuario();
+        $user->setNome($nome);
+        $user->setSobrenome($sobrenome);
+        $user->setUsername($username);
+        $user->setSenha($senha);
+        $modeloUser = new MUsuario();
 
-        $modeloProduto->cadastrar($produto);
+        if($modeloUser->cadastrar($user)){
+            header('Location: http://sendworks.com/login');
+        }
+        
+        
     }
 
 }
