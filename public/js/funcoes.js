@@ -32,7 +32,7 @@ $(document).ready(function () {
             url: '/cadastro',
             data: $("#formCadastro").serializeArray(),
             success: function (dados) {
-                 window.location = '/logado';
+                 //window.location = '/logado';
             },
             beforeSend: function () {
                 $("#processando").css({display: "block"});
@@ -57,16 +57,18 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: '/acLogar',
-            data: $(this).serializeArray(),
-            
-            success: function (response)
+            data: $("#formLogin").serializeArray(),
+            success: function (dados)
             { 
-                if (response) {
-                    window.location = '/logado';
-                } else {
-                     console.log(response);
-                    alert('Invalid redentials');
-                }
+              
+                $("#div_retorno").html(dados);
+            
+            },
+            error: function () {
+                $("#div_retorno").html("Erro em chamar a função.");
+                setTimeout(function () {
+                    $("#div_retorno").css({display: "none"});
+                }, 5000);
             }
         });
     });

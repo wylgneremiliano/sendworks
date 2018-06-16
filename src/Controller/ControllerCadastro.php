@@ -37,8 +37,8 @@ class ControllerCadastro {
     public function login() {
         return $this->response->setContent($this->twig->render('login.twig'));
     }
-    
-    public function ok(){
+
+    public function ok() {
         return $this->response->setContent($this->twig->render('CadastroEfetuado.twig'));
     }
 
@@ -50,21 +50,27 @@ class ControllerCadastro {
         $sobrenome = $this->contexto->get('sobrenome');
         $username = $this->contexto->get('username');
         $senha = $this->contexto->get('senha');
+        $senha2 = $this->contexto->get('confirmarsenha');
+        echo "Senha: {$senha} - Senha2: {$senha2}";
+        /*
+        if ($senha == $senha2) {
+            $user = new Usuario();
+            $user->setNome($nome);
+            $user->setSobrenome($sobrenome);
+            $user->setUsername($username);
+            $senha += 'ERTYUI';
+            $senha = md5($senha);
+            $user->setSenha($senha);
+            $modeloUser = new MUsuario();
+
+            if ($modeloUser->cadastrar($user)) {
+                echo '<script>location.href = "/login"</script>';
+            }
+        } else {
+            echo "vai tomar no cu";
+        }*/
 
         // depois de validado
-       
-        $user = new Usuario();
-        $user->setNome($nome);
-        $user->setSobrenome($sobrenome);
-        $user->setUsername($username);
-        $user->setSenha($senha);
-        $modeloUser = new MUsuario();
-
-        if($modeloUser->cadastrar($user)){
-            header('Location: http://sendworks.com/login');
-        }
-        
-        
     }
 
 }

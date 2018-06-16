@@ -71,14 +71,16 @@ class MUsuario {
     function ler(Usuario $user) {
     
         try {
+           
             $sql = 'select * from usuario where username = :username and senha = :senha';
             $p_sql = Conexao::getInstancia()->prepare($sql);
             $p_sql->bindValue(':username', $user->getUsername());
             $p_sql->bindValue(':senha', $user->getSenha());
             $p_sql->execute();
-
-            $valid = $p_sql->fetchColumn();
-            return $valid;
+            
+            if($p_sql->rowCount() == 1) 
+                return true;
+            return false;
         } catch (Exception $ex) {
             return 'Erro na conexão:' . $ex;
         }

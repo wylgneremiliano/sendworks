@@ -25,13 +25,7 @@ class ControllerLogin {
     }
 
     public function show() {
-        //if ($this->sessao->existe('Usuario'))
         return $this->response->setContent($this->twig->render('login.twig'));
-        //else {
-        //  $destino = '/login';
-        //$redirecionar = new RedirectResponse($destino);
-        //$redirecionar->send();
-        //}
     }
 
     public function showLog() {
@@ -45,11 +39,10 @@ class ControllerLogin {
     }
 
     public function logoff() {
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
+
         $this->sessao->del();
-        print_r($_SESSION);
+        $redirecionar = new RedirectResponse('/login');
+        $redirecionar->send();
     }
 
     public function login() {
@@ -60,17 +53,23 @@ class ControllerLogin {
         define('MINUTOS_BLOQUEIO', 30);
         $username = $this->contexto->get('username');
         $senha = $this->contexto->get('senha');
-        echo 'teste';
         $User = new Usuario();
         $User->setUsername($username);
+        $senha += 'ERTYUI';
+        $senha = md5($senha);
         $User->setSenha($senha);
         $mUser = new MUsuario();
-        $result = $mUser->ler($User);
+        //$result = $mUser->ler($User);
 
-        if ($result) {
+        if ($mUser->ler($User)) {
             $this->sessao->add('username', $User->getUsername());
-            $this->sessao->add('senha', $User->getSenha());
-            
+            // $this->sessao->add('senha', $User->getSenha());
+            // echo 'logado';
+            echo '<script>location.href = "logado"</script>';
+//            $response = new RedirectResponse('//logado');
+//            $response->send();
+        } else {
+            echo 'nao logado';
         }
 
         if ($this->sessao->existe('ez')) {
