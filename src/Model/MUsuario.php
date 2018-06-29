@@ -85,5 +85,21 @@ class MUsuario {
             return 'Erro na conexão:' . $ex;
         }
     }
+     function getIdUser(Usuario $user) {
+    
+        try {
+           
+            $sql = 'select id from usuario where username = :username and senha = :senha';
+            $p_sql = Conexao::getInstancia()->prepare($sql);
+            $p_sql->bindValue(':username', $user->getUsername());
+            $p_sql->bindValue(':senha', $user->getSenha());
+            $p_sql->execute();
+            if($p_sql->fetch()) 
+                return $p_sql->fetch();
+            return false;
+        } catch (Exception $ex) {
+            return 'Erro na conexão:' . $ex;
+        }
+    }
 
 }

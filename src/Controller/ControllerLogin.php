@@ -62,7 +62,9 @@ class ControllerLogin {
         //$result = $mUser->ler($User);
 
         if ($mUser->ler($User)) {
+            $t1 = $mUser->getIdUser($user);
             $this->sessao->add('username', $User->getUsername());
+             $this->sessao->add('id_usuario', $t1->getId());
             // $this->sessao->add('senha', $User->getSenha());
             // echo 'logado';
             echo '<script>location.href = "logado"</script>';

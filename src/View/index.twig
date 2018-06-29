@@ -1,11 +1,18 @@
 {% extends "master.twig"%}
 {% block titulo %}EZ CODE{% endblock %}
 {% block head %}
-    {{ parent() }}
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/master.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
+{% block menu %}
+   
+  <a href="/cadastroProb"> cadastro</a>
+  <a href="/showProb"> listar</a>
+  
+  <a href="/logoff">logoff</a>
+ 
+    {% endblock %}
 {% block conteudo %}
-    <a href="/logoff">logoff</a>
-    
+   
     
 {% endblock %}

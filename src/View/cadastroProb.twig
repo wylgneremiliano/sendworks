@@ -1,0 +1,46 @@
+{% extends "master.twig"%}
+{% block titulo %}EZ CODE{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link href="/css/login.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block conteudo %}
+
+    <div class="caixa col-12 col-sm-12 col-xl-10 col-lg-12 col-xs-8">
+        <div class="">
+            <form  class="form-group  center-block text-center" id="formProb" action="/acProb" method="GET">
+                <div class="">                    
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
+                        <input type="text" name="titulo" class="inputAnimado" placeholder="Titulo" required/>
+
+                    </div>
+                </div>
+                <div class="">                   
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
+                        <input type="text" name="entrada" class="inputAnimado" placeholder="Entrada" required/>
+
+                    </div>
+                </div>
+                <div class="">                   
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
+                        <input type="text" name="saida" class="inputAnimado" placeholder="Saida" required/>
+
+                    </div>
+                </div>
+                <div class="">                   
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-8 col-lg-6 col-xs-6">
+                        <input type="text" name="enunciado" class="inputAnimado" placeholder="Enunciado" required/>
+
+                    </div>
+                </div>
+                
+                <div class="">  
+                    <div class="input-group-prepend input-group col-8 col-sm-8 col-xl-6 col-lg-6 col-xs-6">
+                        <button type="submit" class="btn btn-success" >Entrar</button>
+                    </div>
+                </div>
+            </form>
+            <p id="resultado"> </p> 
+        </div>
+    </div>
+    {% endblock %}
