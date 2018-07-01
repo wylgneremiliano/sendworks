@@ -69,36 +69,49 @@ class MUsuario {
     }
 
     function ler(Usuario $user) {
-    
+
         try {
-           
+
             $sql = 'select * from usuario where username = :username and senha = :senha';
             $p_sql = Conexao::getInstancia()->prepare($sql);
             $p_sql->bindValue(':username', $user->getUsername());
             $p_sql->bindValue(':senha', $user->getSenha());
             $p_sql->execute();
-            
-            if($p_sql->rowCount() == 1) 
-                return true;
+
+            if ($p_sql->rowCount() == 1)
+                return $p_sql->fetchAll(PDO::FETCH_OBJ);
             return false;
         } catch (Exception $ex) {
             return 'Erro na conexão:' . $ex;
         }
     }
-     function getIdUser(Usuario $user) {
-    
+
+    function getIdUser(Usuario $user) {
+
         try {
-           
+
             $sql = 'select id from usuario where username = :username and senha = :senha';
             $p_sql = Conexao::getInstancia()->prepare($sql);
             $p_sql->bindValue(':username', $user->getUsername());
             $p_sql->bindValue(':senha', $user->getSenha());
             $p_sql->execute();
-            if($p_sql->fetch()) 
-                return $p_sql->fetch();
+            if ($p_sql->fetch())
+                return $p_sql->fetchAll(PDO::FETCH_OBJ);
             return false;
         } catch (Exception $ex) {
             return 'Erro na conexão:' . $ex;
+        }
+    }
+
+    function pegarId($username) {
+        try {
+            $sql = "select id from usuario where username = :username";
+            $p_sql = (Conexao::getInstancia()->prepare($sql));
+            $p_sql->bindValue(':username', $username);
+            $p_sql->execute();
+            return $p_sql->fetch();
+        } catch (Exception $ex) {
+            return 'erro em pegar' . $ex;
         }
     }
 

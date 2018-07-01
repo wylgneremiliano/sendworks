@@ -14,4 +14,6 @@ $rotas->add('CadastroEfetuado', new Route('/CadastroEfetuado', array('_controlle
 $rotas->add('logoff', new Route('/logoff', array('_controller' => 'Sendworks\Controller\ControllerLogin','method' => 'logoff')));
 $rotas->add('ProbShow', new Route('/cadastroProb', array('_controller' => 'Sendworks\Controller\ControllerProblema','method' => 'show')));
 $rotas->add('acProb', new Route('/acProb', array('_controller' => 'Sendworks\Controller\ControllerProblema','method' => 'cadastro')));
+$rotas->add('showProb', new Route('/showProb', array('_controller' => 'Sendworks\Controller\ControllerProblema','method' => 'showProb')));
+
 return $rotas;

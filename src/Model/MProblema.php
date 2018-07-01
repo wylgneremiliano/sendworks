@@ -23,7 +23,7 @@ class MProblema {
 
     function listarProblemas() {
         try {
-            $sql = 'select * from problemas';
+            $sql = 'select * from problema';
             $ps = Conexao::getInstancia()->prepare($sql);
             $ps->execute();
             return $ps->fetchAll(PDO::FETCH_OBJ);
@@ -41,7 +41,7 @@ class MProblema {
             $p_sql->bindValue(':entrada', $prob->getEntrada());
             $p_sql->bindValue(':saida', $prob->getSaida());
             $p_sql->bindValue(':enunciado', $prob->getEnunciado());
-            $p_sql->bindValue(':id_usuario', $prob->getId_usuario());
+            $p_sql->bindValue(':id_usuario', $prob->getId_usuario()+1);
             if ($p_sql->execute())
                 return Conexao::getInstancia()->lastInsertId();
             return null;
@@ -64,7 +64,7 @@ class MProblema {
 
     function alterar(Problema $prob) {
         try {
-            $sql = 'update Problema set titulo = :titulo, entrada = :entrada, saida = :saida, enunciado = :enunciado where id = :id';
+            $sql = 'update problema set titulo = :titulo, entrada = :entrada, saida = :saida, enunciado = :enunciado where id = :id';
             $p_sql = Conexao::getInstancia()->prepare($sql);
             $p_sql->bindValue(':id', $prob->getId());
             $p_sql->bindValue(':titulo', $prob->getTitulo());

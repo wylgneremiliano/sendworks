@@ -34,7 +34,11 @@ class ControllerProblema {
         // }
     }
 
-  
+    public function showProb(){
+        $mProblema = new MProblema();
+        $dados = $mProblema->listarProblemas();
+        return $this->response->setContent($this->twig->render('problemas.twig',['dados' => $dados]));
+    }
 
     public function cadastro() {
         //$cl = new ControllerLogin();
@@ -53,7 +57,7 @@ class ControllerProblema {
         $mProblema = new MProblema();
 
         if ($mProblema->cadastrar($prob)) {
-            header('Location: http://sendworks.com/login');
+           return $this->response->setContent($this->twig->render('index.twig'));
         }
     }
 

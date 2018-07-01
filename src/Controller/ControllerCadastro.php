@@ -51,8 +51,8 @@ class ControllerCadastro {
         $username = $this->contexto->get('username');
         $senha = $this->contexto->get('senha');
         $senha2 = $this->contexto->get('confirmarsenha');
-        echo "Senha: {$senha} - Senha2: {$senha2}";
-        /*
+        
+        
         if ($senha == $senha2) {
             $user = new Usuario();
             $user->setNome($nome);
@@ -67,8 +67,8 @@ class ControllerCadastro {
                 echo '<script>location.href = "/login"</script>';
             }
         } else {
-            echo "vai tomar no cu";
-        }*/
+           echo '<script>alert("Senhas não estão iguais!");</script>';
+        }
 
         // depois de validado
     }

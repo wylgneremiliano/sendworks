@@ -39,10 +39,10 @@ class ControllerLogin {
     }
 
     public function logoff() {
-
+        print_r($this->sessao->get('id_usuario'));
         $this->sessao->del();
-        $redirecionar = new RedirectResponse('/login');
-        $redirecionar->send();
+      //  $redirecionar = new RedirectResponse('/login');
+        //$redirecionar->send();
     }
 
     public function login() {
@@ -60,11 +60,11 @@ class ControllerLogin {
         $User->setSenha($senha);
         $mUser = new MUsuario();
         //$result = $mUser->ler($User);
-
-        if ($mUser->ler($User)) {
-            $t1 = $mUser->getIdUser($user);
+            $t1 = $mUser->ler($User);
+        if ($t1) {
+            $t2 = $mUser->pegarId($username);
             $this->sessao->add('username', $User->getUsername());
-             $this->sessao->add('id_usuario', $t1->getId());
+             $this->sessao->add('id_usuario', $t2['id']);
             // $this->sessao->add('senha', $User->getSenha());
             // echo 'logado';
             echo '<script>location.href = "logado"</script>';
